@@ -95,31 +95,31 @@ describe('core-js-conditions-n-loops', () => {
   it.optional(
     'isIsoscelesTriangle should return boolean whether the triangle is isosceles',
     () => {
-      // assert.equal(
-      //   tasks.isIsoscelesTriangle(1, 2, 3),
-      //   false,
-      //   '1, 2, 3 is non isosceles triangle'
-      // );
-      // assert.equal(
-      //   tasks.isIsoscelesTriangle(3, 1, 2),
-      //   false,
-      //   '3, 1, 2 is non isosceles triangle'
-      // );
-      // assert.equal(
-      //   tasks.isIsoscelesTriangle(2, 3, 2),
-      //   true,
-      //   '2, 3, 2 is isosceles triangle'
-      // );
-      // assert.equal(
-      //   tasks.isIsoscelesTriangle(3, 2, 2),
-      //   true,
-      //   '3, 2, 2 is isosceles triangle'
-      // );
-      // assert.equal(
-      //   tasks.isIsoscelesTriangle(2, 2, 3),
-      //   true,
-      //   '2, 2, 3 is isosceles triangle'
-      // );
+      assert.equal(
+        tasks.isIsoscelesTriangle(1, 2, 3),
+        false,
+        '1, 2, 3 is non isosceles triangle'
+      );
+      assert.equal(
+        tasks.isIsoscelesTriangle(3, 1, 2),
+        false,
+        '3, 1, 2 is non isosceles triangle'
+      );
+      assert.equal(
+        tasks.isIsoscelesTriangle(2, 3, 2),
+        true,
+        '2, 3, 2 is isosceles triangle'
+      );
+      assert.equal(
+        tasks.isIsoscelesTriangle(3, 2, 2),
+        true,
+        '3, 2, 2 is isosceles triangle'
+      );
+      assert.equal(
+        tasks.isIsoscelesTriangle(2, 2, 3),
+        true,
+        '2, 2, 3 is isosceles triangle'
+      );
       assert.equal(
         tasks.isIsoscelesTriangle(2, 2, 5),
         false,
