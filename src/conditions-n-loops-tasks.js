@@ -427,10 +427,14 @@ function rotateMatrix(matrix) {
  */
 function sortByAsc(arr) {
   const workArr = arr;
-  for (let i = 0; i < workArr.length; i += 1) {
-    let isSwapped = false;
+  let begin = -1;
+  let end = arr.length - 2;
+  let isSwapped = true;
+  while (isSwapped) {
+    isSwapped = false;
+    begin += 1;
     let buffer = 0;
-    for (let j = 0; j < workArr.length; j += 1) {
+    for (let i = begin; i <= end; i += 1) {
       if (workArr[i] > workArr[i + 1]) {
         buffer = workArr[i];
         workArr[i] = workArr[i + 1];
@@ -438,8 +442,18 @@ function sortByAsc(arr) {
         isSwapped = true;
       }
     }
-    if (isSwapped === false) {
+    if (!isSwapped) {
       break;
+    }
+    isSwapped = false;
+    end -= 1;
+    for (let i = end; i >= begin; i -= 1) {
+      if (workArr[i] > workArr[i + 1]) {
+        buffer = workArr[i];
+        workArr[i] = workArr[i + 1];
+        workArr[i + 1] = buffer;
+        isSwapped = true;
+      }
     }
   }
   return workArr;
