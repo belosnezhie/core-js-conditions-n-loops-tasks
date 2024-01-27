@@ -163,52 +163,57 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  // const digits = [
-  //   { key: 0, value: 'zero' },
-  //   { key: 1, value: 'one' },
-  //   { key: 2, value: 'two' },
-  //   { key: 3, value: 'three' },
-  //   { key: 4, value: 'four' },
-  //   { key: 5, value: 'five' },
-  //   { key: 6, value: 'six' },
-  //   { key: 7, value: 'seven' },
-  //   { key: 8, value: 'eight' },
-  //   { key: 9, value: 'nine' },
-  //   { key: '-', value: 'minus' },
-  //   { key: '.', value: 'point' },
-  //   { key: ',', value: 'point' },
-  // ];
-
-  // let result = '';
-  // let strIndex = 0;
-  // while (numberStr[strIndex] !== undefined) {
-  //   for (let digitIndex = 0; digitIndex < digits.length; digitIndex += 1) {
-  //     switch (digits[digitIndex].key) {
-  //       case Number(numberStr[strIndex]):
-  //         if (result !== '') {
-  //           result += ` ${digits[digitIndex].value}`;
-  //           break;
-  //         } else {
-  //           result += `${digits[digitIndex].value}`;
-  //           break;
-  //         }
-  //       case numberStr[strIndex]:
-  //         if (result !== '') {
-  //           result += ` ${digits[digitIndex].value}`;
-  //           break;
-  //         } else {
-  //           result += `${digits[digitIndex].value}`;
-  //           break;
-  //         }
-  //       default:
-  //         break;
-  //     }
-  //   strIndex += 1;
-  // }
-  // return result;
-  // }
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let result = '';
+  for (let digitIndex = 0; digitIndex < numberStr.length; digitIndex += 1) {
+    switch (numberStr[digitIndex]) {
+      case '0':
+        result += 'zero';
+        break;
+      case '1':
+        result += 'one';
+        break;
+      case '2':
+        result += 'two';
+        break;
+      case '3':
+        result += 'three';
+        break;
+      case '4':
+        result += 'four';
+        break;
+      case '6':
+        result += 'six';
+        break;
+      case '5':
+        result += 'five';
+        break;
+      case '7':
+        result += 'seven';
+        break;
+      case '8':
+        result += 'eight';
+        break;
+      case '9':
+        result += 'nine';
+        break;
+      case '-':
+        result += 'minus';
+        break;
+      case '.':
+        result += 'point';
+        break;
+      case ',':
+        result += 'point';
+        break;
+      default:
+        break;
+    }
+    if (digitIndex + 1 !== numberStr.length) {
+      result += ' ';
+    }
+  }
+  return result;
 }
 
 /**
