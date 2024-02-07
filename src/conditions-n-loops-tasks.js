@@ -528,8 +528,40 @@ function shuffleChar(str, iterations) {
  * @param {number} number The source number
  * @returns {number} The nearest larger number, or original number if none exists.
  */
-function getNearestBigger(/* number */) {
-  throw new Error('Not implemented');
+function getNearestBigger(number) {
+  const arr = Array.from(String(number), Number);
+  let leftIndex = 0;
+  for (let i = arr.length; i >= 0; i -= 1) {
+    if (arr[i] > arr[i - 1]) {
+      leftIndex = i - 1;
+      break;
+    }
+  }
+  let rightIndex = 0;
+  let dif = 9;
+  for (let i = leftIndex; i < arr.length - 1; i += 1) {
+    if (arr[i + 1] - arr[leftIndex] < dif && arr[i + 1] - arr[leftIndex] > 0) {
+      dif = arr[i + 1] - arr[leftIndex];
+      rightIndex = i + 1;
+    }
+  }
+  const buffer = arr[leftIndex];
+  arr[leftIndex] = arr[rightIndex];
+  arr[rightIndex] = buffer;
+  const leftPartArr = [];
+  for (let i = 0; i < leftIndex + 1; i += 1) {
+    leftPartArr.push(arr[i]);
+  }
+  const rigthPartArr = [];
+  for (let i = leftIndex + 1; i < arr.length; i += 1) {
+    rigthPartArr.push(arr[i]);
+  }
+  rigthPartArr.sort((a, b) => a - b);
+  for (let i = 0; i < rigthPartArr.length; i += 1) {
+    leftPartArr.push(rigthPartArr[i]);
+  }
+  const result = leftPartArr;
+  return Number(result.join(''));
 }
 
 module.exports = {
